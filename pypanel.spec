@@ -11,6 +11,7 @@ Patch0:		%{name}-path.patch
 URL:		http://pypanel.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.3
+Requires:	python-Xlib >= 0.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
