@@ -1,12 +1,12 @@
 Summary:	Lightweight panel/taskbar for X11
 Summary(pl):	Lekki panel dla X11
 Name:		pypanel
-Version:	0.9
+Version:	1.2
 Release:	1
 License:	GNU
 Group:		X11/Window Managers/Tools
 Source0:	http://dl.sourceforge.net/pypanel/PyPanel-%{version}.tar.gz
-# Source0-md5:	622c01f053f90167fcfd996f5cf8f772
+# Source0-md5:	5771a64883f46199da97e9a7e764c143
 Patch0:		%{name}-path.patch
 URL:		http://pypanel.sourceforge.net/
 %pyrequires_eq	python-modules

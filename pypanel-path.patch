@@ -1,24 +1,24 @@
-diff -uNr PyPanel-0.9-org/setup.py PyPanel-0.9/setup.py
---- PyPanel-0.9-org/setup.py	2003-11-09 17:31:35.000000000 +0100
-+++ PyPanel-0.9/setup.py	2004-01-05 21:19:13.000000000 +0100
+diff -uNr PyPanel-1.2-org/setup.py PyPanel-1.2/setup.py
+--- PyPanel-1.2-org/setup.py	2004-03-29 04:16:05.000000000 +0200
++++ PyPanel-1.2/setup.py	2004-05-02 20:50:22.972792704 +0200
 @@ -1,5 +1,4 @@
  from distutils.core import Extension, setup
 -from distutils import sysconfig
  
  try:
      from Xlib import X, display, Xatom, Xutil
-@@ -28,8 +27,8 @@
-                     define_macros = [("HAVE_XPM",None)],                    
-                    )
+@@ -26,8 +25,8 @@
+     define_macros = [("HAVE_XFT", 1), ("HAVE_XPM", 1)],                    
+     )
  
 -install_dir = sysconfig.get_python_lib() + "/pypanel"
 -files       = ["COPYING", "README", "pypanelrc"]
-+data_dir   = "/usr/share/pypanel"
-+data	    = ["pypanelrc"]
++data_dir    = "/usr/share/pypanel"
++data        = ["pypanelrc"]
  script      = "src/pypanel"
  
  setup (name             = "PyPanel",
-@@ -41,6 +42,6 @@
+@@ -39,6 +38,6 @@
         description      = "Lightweight panel/taskbar for X11 Window Managers",
         long_description = "See README for more information",
         url              = "http://pypanel.sourceforge.net",
@@ -26,23 +26,23 @@ diff -uNr PyPanel-0.9-org/setup.py PyPanel-0.9/setup.py
 +       data_files       = [(data_dir, data)],
         scripts          = [script],
         ext_modules      = [module])
-diff -uNr PyPanel-0.9-org/src/pypanel PyPanel-0.9/src/pypanel
---- PyPanel-0.9-org/src/pypanel	2003-11-09 18:16:47.000000000 +0100
-+++ PyPanel-0.9/src/pypanel	2004-01-05 21:16:42.000000000 +0100
-@@ -616,7 +616,6 @@
+diff -uNr PyPanel-1.2-org/src/pypanel PyPanel-1.2/src/pypanel
+--- PyPanel-1.2-org/src/pypanel	2004-03-29 03:47:36.000000000 +0200
++++ PyPanel-1.2/src/pypanel	2004-05-02 20:51:18.949282984 +0200
+@@ -581,7 +581,6 @@
  #----------------------------------------------------------------------------
  #                                  Main
  #----------------------------------------------------------------------------
 -from distutils import sysconfig
- from ppmodule import ppshade, ppicon
+ from ppmodule import ppinit, ppshade, ppicon, ppfont, ppfontsize
  from Xlib import X, display, Xatom, Xutil
  import Xlib.protocol.event
-@@ -629,7 +628,7 @@
-         home = pwd.getpwuid(os.getuid())[5]
+@@ -600,7 +599,7 @@
+             execfile("/etc/pypanelrc")
          if not os.path.isfile("%s/.pypanelrc" % home):
              import shutil
 -            src = "%s/pypanel/pypanelrc" % sysconfig.get_python_lib()
-+            src = "/usr/share/pypanel/pypanelrc"
++	    src = "/usr/share/pypanel/pypanelrc"
              dst = "%s/.pypanelrc" % home
              shutil.copyfile(src, dst)
              del src, dst
