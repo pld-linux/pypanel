@@ -1,0 +1,48 @@
+diff -uNr PyPanel-0.9-org/setup.py PyPanel-0.9/setup.py
+--- PyPanel-0.9-org/setup.py	2003-11-09 17:31:35.000000000 +0100
++++ PyPanel-0.9/setup.py	2004-01-05 21:19:13.000000000 +0100
+@@ -1,5 +1,4 @@
+ from distutils.core import Extension, setup
+-from distutils import sysconfig
+ 
+ try:
+     from Xlib import X, display, Xatom, Xutil
+@@ -28,8 +27,8 @@
+                     define_macros = [("HAVE_XPM",None)],                    
+                    )
+ 
+-install_dir = sysconfig.get_python_lib() + "/pypanel"
+-files       = ["COPYING", "README", "pypanelrc"]
++data_dir   = "/usr/share/pypanel"
++data	    = ["pypanelrc"]
+ script      = "src/pypanel"
+ 
+ setup (name             = "PyPanel",
+@@ -41,6 +42,6 @@
+        description      = "Lightweight panel/taskbar for X11 Window Managers",
+        long_description = "See README for more information",
+        url              = "http://pypanel.sourceforge.net",
+-       data_files       = [(install_dir, files)],
++       data_files       = [(data_dir, data)],
+        scripts          = [script],
+        ext_modules      = [module])
+diff -uNr PyPanel-0.9-org/src/pypanel PyPanel-0.9/src/pypanel
+--- PyPanel-0.9-org/src/pypanel	2003-11-09 18:16:47.000000000 +0100
++++ PyPanel-0.9/src/pypanel	2004-01-05 21:16:42.000000000 +0100
+@@ -616,7 +616,6 @@
+ #----------------------------------------------------------------------------
+ #                                  Main
+ #----------------------------------------------------------------------------
+-from distutils import sysconfig
+ from ppmodule import ppshade, ppicon
+ from Xlib import X, display, Xatom, Xutil
+ import Xlib.protocol.event
+@@ -629,7 +628,7 @@
+         home = pwd.getpwuid(os.getuid())[5]
+         if not os.path.isfile("%s/.pypanelrc" % home):
+             import shutil
+-            src = "%s/pypanel/pypanelrc" % sysconfig.get_python_lib()
++            src = "/usr/share/pypanel/pypanelrc"
+             dst = "%s/.pypanelrc" % home
+             shutil.copyfile(src, dst)
+             del src, dst
