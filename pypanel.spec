@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/pypanel/PyPanel-%{version}.tar.gz
 Patch0:		%{name}-path.patch
 URL:		http://pypanel.sourceforge.net/
 %pyrequires_eq	python-modules
-BuildRequires:	python-devel >= 2.3
+BuildRequires:	python-devel >= 1:2.3
 Requires:	python-Xlib >= 0.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
