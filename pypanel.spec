@@ -61,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{py_sitedir}/*.so
+%attr(755,root,root) %{py_sitedir}/*.so
