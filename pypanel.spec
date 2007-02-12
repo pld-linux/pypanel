@@ -1,5 +1,5 @@
 Summary:	Lightweight panel/taskbar for X11
-Summary(pl):	Lekki panel dla X11
+Summary(pl.UTF-8):   Lekki panel dla X11
 Name:		pypanel
 Version:	1.2
 Release:	1
@@ -25,17 +25,17 @@ Some of the customizable features include:
 - Button events/actions
 - Clock and workspace name display
 
-%description -l pl
-PyPanel jest lekkim panelem/paskiem zadañ dla zarz±dców okien systemu
-X11. PyPanel mo¿e byæ ³atwo dostosowany do dowolnego gustu czy tematu
+%description -l pl.UTF-8
+PyPanel jest lekkim panelem/paskiem zadaÅ„ dla zarzÄ…dcÃ³w okien systemu
+X11. PyPanel moÅ¼e byÄ‡ Å‚atwo dostosowany do dowolnego gustu czy tematu
 pulpitu.
 
-PyPanel oferuje miêdzy innymi:
-- przezroczysto¶æ z cieniowaniem
-- ustalanie po³o¿enia i wymiarów panelu
-- wybór rodzaju i kolorów czcionki
-- zdarzenia przycisków
-- wy¶wietlanie zegara i nazwy pulpitu
+PyPanel oferuje miÄ™dzy innymi:
+- przezroczystoÅ›Ä‡ z cieniowaniem
+- ustalanie poÅ‚oÅ¼enia i wymiarÃ³w panelu
+- wybÃ³r rodzaju i kolorÃ³w czcionki
+- zdarzenia przyciskÃ³w
+- wyÅ›wietlanie zegara i nazwy pulpitu
 
 %prep
 %setup -q -n PyPanel-%{version}
