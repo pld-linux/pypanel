@@ -1,5 +1,5 @@
 Summary:	Lightweight panel/taskbar for X11
-Summary(pl.UTF-8):   Lekki panel dla X11
+Summary(pl.UTF-8):	Lekki panel dla X11
 Name:		pypanel
 Version:	1.2
 Release:	1
