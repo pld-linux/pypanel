@@ -9,8 +9,9 @@ Source0:	http://dl.sourceforge.net/pypanel/PyPanel-%{version}.tar.gz
 # Source0-md5:	5771a64883f46199da97e9a7e764c143
 Patch0:		%{name}-path.patch
 URL:		http://pypanel.sourceforge.net/
+BuildRequires:	python-Xlib >= 0.12
+BuildRequires:	python-devel >= 1:2.5
 %pyrequires_eq	python-modules
-BuildRequires:	python-devel >= 1:2.3
 Requires:	python-Xlib >= 0.12
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,13 +45,14 @@ PyPanel oferuje między innymi:
 %build
 CFLAGS="%{rpmcflags}"
 export CFLAGS
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
-	--root=$RPM_BUILD_ROOT --optimize=2
+%{__python} setup.py install \
+	--root=$RPM_BUILD_ROOT \
+	--optimize=2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,6 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/*
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/*
-%attr(755,root,root) %{py_sitedir}/*.so
+%{_datadir}/%{name}
+%attr(755,root,root) %{py_sitedir}/ppmodule.so
+%{py_sitedir}/PyPanel-*.egg-info
