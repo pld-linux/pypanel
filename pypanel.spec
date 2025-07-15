@@ -40,7 +40,7 @@ PyPanel oferuje między innymi:
 
 %prep
 %setup -q -n PyPanel-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 CFLAGS="%{rpmcflags}"
